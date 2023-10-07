@@ -3,9 +3,9 @@ import "../styles/formulario.css"
 import { useState } from "react";
 import {v4 as uuidv4} from "uuid";
 
-function Form (props){
+function Form ({input, setInput, add}){
 
-    const [input, setInput] = useState("");
+    
 
     const handleChange = (event) =>{
         setInput(
@@ -25,12 +25,12 @@ function Form (props){
             <input className="task-input" 
             type="text"
             placeholder="Write your new task"
-            value={input.task}
+            value={input}
             onChange={handleChange}
             name="task">
 
             </input >
-            <button className="task-btn" onClick={() =>props.add(newtask)}>
+            <button className="task-btn" onClick={() =>add(newtask)}>
             Add new Task</button>
 
         </div>

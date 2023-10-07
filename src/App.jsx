@@ -6,13 +6,15 @@ import { useState } from "react";
 function App() {
 
     const [task, setTask] = useState([]);
+    const [input, setInput] = useState("");
 
     const add = (newtask) => {
       if(newtask.text.trim()){
         const updatedtasks = [newtask, ...task]
         setTask(updatedtasks)
-       
+        setInput("")
       }
+      
   }
 
 
@@ -26,7 +28,7 @@ function App() {
       return task;
     });
     setTask(updatedtasks);
-    console.log(updatedtasks)
+    
   };
 
     const deletee = (id) =>{
@@ -39,7 +41,7 @@ function App() {
   return (
     <div className="apptask">
       <div className='principaltask'>
-        <Formulario add={add}></Formulario>
+        <Formulario add={add} input={input} setInput={setInput}></Formulario>
         <h1>MY TASKS</h1>
         <Tarea change={change} task={task} deletee={deletee}></Tarea>
         

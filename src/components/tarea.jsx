@@ -5,9 +5,9 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 function Tarea ({ change, task, deletee }) {
 
     return(
-        <div> {task?.map((element) => {
+        <div> {task?.map((element,index) => {
             return (
-                <div   className={element.complete ? "task-container complete" : "task-container"} >
+                <div key={index}  className={element.complete ? "task-container complete" : "task-container"} >
                     <div onClick={()=>{change(element.id)}} className="task-text">  
                         
                             {element.text}
